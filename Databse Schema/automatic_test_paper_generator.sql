@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2023 at 01:56 PM
+-- Generation Time: Nov 17, 2023 at 06:08 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -138,6 +138,38 @@ CREATE TABLE `four_marks_question` (
   `question` text NOT NULL,
   `answer` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `four_marks_question`
+--
+
+INSERT INTO `four_marks_question` (`id`, `stream_id`, `department_id`, `degree_id`, `class_id`, `subject_id`, `unit_id`, `question`, `answer`) VALUES
+(3, 2, 1, 1, 1, 4, 1, 'What do you understand from simple program logic? Discuss with examples', ''),
+(4, 2, 1, 1, 1, 4, 1, 'What is Program Development Life cycle? Explain it\'s various stages', ''),
+(5, 2, 1, 1, 1, 4, 1, 'Define keywords and identifies in C language? What are the rules for writing identifiers ?', ''),
+(6, 2, 1, 1, 1, 4, 1, 'What are desirable characteristics required for writing a program ?', ''),
+(7, 2, 1, 1, 1, 4, 1, 'What are constants in C? Discuss various types of constants used in C', ''),
+(8, 2, 1, 1, 1, 4, 2, 'What do you understand from precedence/hierarchy of operators in C? Write down the precedence of operators in C.', ''),
+(9, 2, 1, 1, 1, 4, 2, 'Discuss the use of following functions    1.) getch()       2.) putch()', ''),
+(10, 2, 1, 1, 1, 4, 2, 'What is printf()? Discuss various format strings which can be used with printf() giving suitable examples.', ''),
+(11, 2, 1, 1, 1, 4, 2, 'Write an Interactive C program to accept three numbers from users and find their sum and average.', ''),
+(12, 2, 1, 1, 1, 4, 2, 'Explain conditional operator in C.', ''),
+(13, 2, 1, 1, 1, 4, 3, 'Explain if-else statement with an example', ''),
+(14, 2, 1, 1, 1, 4, 3, 'Write a program in C to find the sum of square of digits of a number.', ''),
+(15, 2, 1, 1, 1, 4, 3, 'What is the difference between while and do-while loop in C ?', ''),
+(16, 2, 1, 1, 1, 4, 3, 'Explain the function with an example', ''),
+(17, 2, 1, 1, 1, 4, 3, 'Write a program in C to find the factorial of a number using recursion', ''),
+(18, 2, 1, 1, 1, 4, 4, 'What do you understand from storage classes? Discuss the use of auto and static storage', ''),
+(19, 2, 1, 1, 1, 4, 4, 'What are preprocessors in C language? List various preprocessors and explain any two of them.', ''),
+(20, 2, 1, 1, 1, 4, 4, 'What is macro? Write a small program to show the use of macro', ''),
+(21, 2, 1, 1, 1, 4, 4, 'What is an array? What are advantages of using arrays? Discuss one-dimensional array.', ''),
+(22, 2, 1, 1, 1, 4, 4, 'Write a C Program to swap two numbers using call by value method.', ''),
+(23, 2, 1, 1, 1, 4, 5, 'What is a pointer? How a pointer can be declared and assigned address? Also explain use of Null pointer.', ''),
+(24, 2, 1, 1, 1, 4, 5, 'What are pointer arrays? How data can be read and written using a pointer array? Explain with suitable example.', ''),
+(25, 2, 1, 1, 1, 4, 5, 'What is structure? How can we pass a structure to a function? Explain with example.', ''),
+(26, 2, 1, 1, 1, 4, 5, 'What is a union? Discuss it\'s advantages and disadvantages over struture.', ''),
+(27, 2, 1, 1, 1, 4, 5, 'Write a C program to demonstrate the use of union', ''),
+(28, 2, 1, 1, 1, 3, 1, 'Define Universal Statement, Conditional Statement and Existential Statement. Give example of each.', '');
 
 -- --------------------------------------------------------
 
@@ -714,7 +746,7 @@ ALTER TABLE `five_marks_question`
 -- AUTO_INCREMENT for table `four_marks_question`
 --
 ALTER TABLE `four_marks_question`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `mcq_based_question`
