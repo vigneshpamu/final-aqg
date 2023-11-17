@@ -1,0 +1,304 @@
+-- Inserting values into the users table
+INSERT INTO users (username, password) VALUES
+    ('admin', 'admin'),
+    ('hod', 'hod'),
+    ('teacher', 'teacher');
+
+-- Inserting the streams
+INSERT INTO stream (stream_name) VALUES
+    ('Arts'),
+    ('Science'),
+    ('Commerce');
+
+-- Inserting the Departments (here I am using only one)
+INSERT INTO departments (stream_id, dept_name) VALUES
+    (2, 'IT');
+
+-- Inserting the Degrees
+INSERT INTO degree (stream_id, departments_id, degree_name) VALUES
+    (2, 1, 'Bachelor of Science in Information and Technology (BScIT)'),
+    (2, 1, 'Master of Science in Information & Technology (MScIT)');
+
+-- Inserting the Classes
+INSERT INTO class (stream_id, departments_id, degree_id, class_name) VALUES
+    (2, 1, 1, 'First Year (FY)'),
+    (2, 1, 1, 'Second Year (SY)'),
+    (2, 1, 1, 'Third Year (TY)');
+
+-- Inserting the Semesters (total 6 for only BScIT since it has DegreeId of 1)
+INSERT INTO semester (stream_id, departments_id, degree_id, class_id, semester_name) VALUES
+    (2, 1, 1, 1, 'Semester 1'),
+    (2, 1, 1, 1, 'Semester 2'),
+    (2, 1, 1, 2, 'Semester 3'),
+    (2, 1, 1, 2, 'Semester 4'),
+    (2, 1, 1, 3, 'Semester 5'),
+    (2, 1, 1, 3, 'Semester 6');
+
+-- Insert subjects for Semester 1
+INSERT INTO subjects (stream_id, departments_id, degree_id, class_id, semester_id, subject_name) VALUES
+    (2, 1, 1, 1, 1, 'Communication Skills'),
+    (2, 1, 1, 1, 1, 'Digital electronics'),
+    (2, 1, 1, 1, 1, 'Discrete Mathematics'),
+    (2, 1, 1, 1, 1, 'Imperative Programming'),
+    (2, 1, 1, 1, 1, 'Operating System');
+
+
+-- Insert units for Semester 1 subjects
+INSERT INTO units (stream_id, departments_id, degree_id, class_id, semester_id, subject_id, unit_name) VALUES
+    (2, 1, 1, 1, 1, 1, 'Unit 1'),
+    (2, 1, 1, 1, 1, 1, 'Unit 2'),
+    (2, 1, 1, 1, 1, 1, 'Unit 3'),
+    (2, 1, 1, 1, 1, 1, 'Unit 4'),
+    (2, 1, 1, 1, 1, 1, 'Unit 5'),
+    (2, 1, 1, 1, 1, 2, 'Unit 1'),
+    (2, 1, 1, 1, 1, 2, 'Unit 2'),
+    (2, 1, 1, 1, 1, 2, 'Unit 3'),
+    (2, 1, 1, 1, 1, 2, 'Unit 4'),
+    (2, 1, 1, 1, 1, 2, 'Unit 5'),
+    (2, 1, 1, 1, 1, 3, 'Unit 1'),
+    (2, 1, 1, 1, 1, 3, 'Unit 2'),
+    (2, 1, 1, 1, 1, 3, 'Unit 3'),
+    (2, 1, 1, 1, 1, 3, 'Unit 4'),
+    (2, 1, 1, 1, 1, 3, 'Unit 5'),
+    (2, 1, 1, 1, 1, 4, 'Unit 1'),
+    (2, 1, 1, 1, 1, 4, 'Unit 2'),
+    (2, 1, 1, 1, 1, 4, 'Unit 3'),
+    (2, 1, 1, 1, 1, 4, 'Unit 4'),
+    (2, 1, 1, 1, 1, 4, 'Unit 5'),
+    (2, 1, 1, 1, 1, 5, 'Unit 1'),
+    (2, 1, 1, 1, 1, 5, 'Unit 2'),
+    (2, 1, 1, 1, 1, 5, 'Unit 3'),
+    (2, 1, 1, 1, 1, 5, 'Unit 4'),
+    (2, 1, 1, 1, 1, 5, 'Unit 5');
+
+-- Insert subjects for Semester 2
+INSERT INTO subjects (stream_id, departments_id, degree_id, class_id, semester_id, subject_name) VALUES
+    (2, 1, 1, 1, 2, 'Green Computing'),
+    (2, 1, 1, 1, 2, 'Microprocessor Architecture'),
+    (2, 1, 1, 1, 2, 'Numerical and Statistical Methods'),
+    (2, 1, 1, 1, 2, 'Object Oriented Programming'),
+    (2, 1, 1, 1, 2, 'Web Programming');
+
+-- Insert units for Semester 2 subjects
+INSERT INTO units (stream_id, departments_id, degree_id, class_id, semester_id, subject_id, unit_name) VALUES
+    (2, 1, 1, 1, 2, 6, 'Unit 1'),
+    (2, 1, 1, 1, 2, 6, 'Unit 2'),
+    (2, 1, 1, 1, 2, 6, 'Unit 3'),
+    (2, 1, 1, 1, 2, 6, 'Unit 4'),
+    (2, 1, 1, 1, 2, 6, 'Unit 5'),
+    (2, 1, 1, 1, 2, 7, 'Unit 1'),
+    (2, 1, 1, 1, 2, 7, 'Unit 2'),
+    (2, 1, 1, 1, 2, 7, 'Unit 3'),
+    (2, 1, 1, 1, 2, 7, 'Unit 4'),
+    (2, 1, 1, 1, 2, 7, 'Unit 5'),
+    (2, 1, 1, 1, 2, 8, 'Unit 1'),
+    (2, 1, 1, 1, 2, 8, 'Unit 2'),
+    (2, 1, 1, 1, 2, 8, 'Unit 3'),
+    (2, 1, 1, 1, 2, 8, 'Unit 4'),
+    (2, 1, 1, 1, 2, 8, 'Unit 5'),
+    (2, 1, 1, 1, 2, 9, 'Unit 1'),
+    (2, 1, 1, 1, 2, 9, 'Unit 2'),
+    (2, 1, 1, 1, 2, 9, 'Unit 3'),
+    (2, 1, 1, 1, 2, 9, 'Unit 4'),
+    (2, 1, 1, 1, 2, 9, 'Unit 5'),
+    (2, 1, 1, 1, 2, 10,  'Unit 1'),
+    (2, 1, 1, 1, 2, 10,  'Unit 2'),
+    (2, 1, 1, 1, 2, 10,  'Unit 3'),
+    (2, 1, 1, 1, 2, 10,  'Unit 4'),
+    (2, 1, 1, 1, 2, 10,  'Unit 5');
+
+
+-- Insert subjects for Semester 3
+INSERT INTO subjects (stream_id, departments_id, degree_id, class_id, semester_id, subject_name) VALUES
+    (2, 1, 1, 2, 3, 'Computer Networks'),
+    (2, 1, 1, 2, 3, 'Computer Oriented Statistical Techniques'),
+    (2, 1, 1, 2, 3, 'Data Structures'),
+    (2, 1, 1, 2, 3, 'Database Management Systems'),
+    (2, 1, 1, 2, 3, 'Python Programming');
+
+
+-- Insert units for Semester 3 subjects
+INSERT INTO units (stream_id, departments_id, degree_id, class_id, semester_id, subject_id, unit_name) VALUES
+    (2, 1, 1, 2, 3, 11, 'Unit 1'),
+    (2, 1, 1, 2, 3, 11, 'Unit 2'),
+    (2, 1, 1, 2, 3, 11, 'Unit 3'),
+    (2, 1, 1, 2, 3, 11, 'Unit 4'),
+    (2, 1, 1, 2, 3, 11, 'Unit 5'),
+    (2, 1, 1, 2, 3, 12, 'Unit 1'),
+    (2, 1, 1, 2, 3, 12, 'Unit 2'),
+    (2, 1, 1, 2, 3, 12, 'Unit 3'),
+    (2, 1, 1, 2, 3, 12, 'Unit 4'),
+    (2, 1, 1, 2, 3, 12, 'Unit 5'),
+    (2, 1, 1, 2, 3, 13, 'Unit 1'),
+    (2, 1, 1, 2, 3, 13, 'Unit 2'),
+    (2, 1, 1, 2, 3, 13, 'Unit 3'),
+    (2, 1, 1, 2, 3, 13, 'Unit 4'),
+    (2, 1, 1, 2, 3, 13, 'Unit 5'),
+    (2, 1, 1, 2, 3, 14, 'Unit 1'),
+    (2, 1, 1, 2, 3, 14, 'Unit 2'),
+    (2, 1, 1, 2, 3, 14, 'Unit 3'),
+    (2, 1, 1, 2, 3, 14, 'Unit 4'),
+    (2, 1, 1, 2, 3, 14, 'Unit 5'),
+    (2, 1, 1, 2, 3, 15, 'Unit 1'),
+    (2, 1, 1, 2, 3, 15, 'Unit 2'),
+    (2, 1, 1, 2, 3, 15, 'Unit 3'),
+    (2, 1, 1, 2, 3, 15, 'Unit 4'),
+    (2, 1, 1, 2, 3, 15, 'Unit 5');
+
+
+-- Insert subjects for Semester 4
+INSERT INTO subjects (stream_id, departments_id, degree_id, class_id, semester_id, subject_name) VALUES
+    (2, 1, 2, 2, 4, 'Applied Mathematics'),
+    (2, 1, 1, 2, 4, 'Computer Graphics and Animation'),
+    (2, 1, 1, 2, 4, 'Core Java'),
+    (2, 1, 1, 2, 4, 'Embedded System'),
+    (2, 1, 1, 2, 4, 'Software Engineering');
+
+
+-- Insert units for Semester 4 subjects
+INSERT INTO units (stream_id, departments_id, degree_id, class_id, semester_id, subject_id, unit_name) VALUES
+    (2, 1, 1, 2, 4, 16, 'Unit 1'),
+    (2, 1, 1, 2, 4, 16, 'Unit 2'),
+    (2, 1, 1, 2, 4, 16, 'Unit 3'),
+    (2, 1, 1, 2, 4, 16, 'Unit 4'),
+    (2, 1, 1, 2, 4, 16, 'Unit 5'),
+    (2, 1, 1, 2, 4, 17, 'Unit 1'),
+    (2, 1, 1, 2, 4, 17, 'Unit 2'),
+    (2, 1, 1, 2, 4, 17, 'Unit 3'),
+    (2, 1, 1, 2, 4, 17, 'Unit 4'),
+    (2, 1, 1, 2, 4, 17, 'Unit 5'),
+    (2, 1, 1, 2, 4, 18, 'Unit 1'),
+    (2, 1, 1, 2, 4, 18, 'Unit 2'),
+    (2, 1, 1, 2, 4, 18, 'Unit 3'),
+    (2, 1, 1, 2, 4, 18, 'Unit 4'),
+    (2, 1, 1, 2, 4, 18, 'Unit 5'),
+    (2, 1, 1, 2, 4, 19, 'Unit 1'),
+    (2, 1, 1, 2, 4, 19, 'Unit 2'),
+    (2, 1, 1, 2, 4, 19, 'Unit 3'),
+    (2, 1, 1, 2, 4, 19, 'Unit 4'),
+    (2, 1, 1, 2, 4, 19, 'Unit 5'),
+    (2, 1, 1, 2, 4, 20, 'Unit 1'),
+    (2, 1, 1, 2, 4, 20, 'Unit 2'),
+    (2, 1, 1, 2, 4, 20, 'Unit 3'),
+    (2, 1, 1, 2, 4, 20, 'Unit 4'),
+    (2, 1, 1, 2, 4, 20, 'Unit 5');
+
+-- Insert subjects for Semester 5
+INSERT INTO subjects (stream_id, departments_id, degree_id, class_id, semester_id, subject_name) VALUES
+    (2, 1, 1, 3, 5, 'Advance Web Programming'),
+    (2, 1, 1, 3, 5, 'Internet of Things'),
+    (2, 1, 1, 3, 5, 'Linux System Administration'),
+    (2, 1, 1, 3, 5, 'Next Generation Technologies'),
+    (2, 1, 1, 3, 5, 'Software Project Management');
+
+-- Insert units for Semester 5 subjects
+INSERT INTO units (stream_id, departments_id, degree_id, class_id, semester_id, subject_id, unit_name) VALUES
+    (2, 1, 1, 3, 5, 21, 'Unit 1'),
+    (2, 1, 1, 3, 5, 21, 'Unit 2'),
+    (2, 1, 1, 3, 5, 21, 'Unit 3'),
+    (2, 1, 1, 3, 5, 21, 'Unit 4'),
+    (2, 1, 1, 3, 5, 21, 'Unit 5'),
+    (2, 1, 1, 3, 5, 22, 'Unit 1'),
+    (2, 1, 1, 3, 5, 22, 'Unit 2'),
+    (2, 1, 1, 3, 5, 22, 'Unit 3'),
+    (2, 1, 1, 3, 5, 22, 'Unit 4'),
+    (2, 1, 1, 3, 5, 22, 'Unit 5'),
+    (2, 1, 1, 3, 5, 23, 'Unit 1'),
+    (2, 1, 1, 3, 5, 23, 'Unit 2'),
+    (2, 1, 1, 3, 5, 23, 'Unit 3'),
+    (2, 1, 1, 3, 5, 23, 'Unit 4'),
+    (2, 1, 1, 3, 5, 23, 'Unit 5'),
+    (2, 1, 1, 3, 5, 24, 'Unit 1'),
+    (2, 1, 1, 3, 5, 24, 'Unit 2'),
+    (2, 1, 1, 3, 5, 24, 'Unit 3'),
+    (2, 1, 1, 3, 5, 24, 'Unit 4'),
+    (2, 1, 1, 3, 5, 24, 'Unit 5'),
+    (2, 1, 1, 3, 5, 25, 'Unit 1'),
+    (2, 1, 1, 3, 5, 25, 'Unit 2'),
+    (2, 1, 1, 3, 5, 25, 'Unit 3'),
+    (2, 1, 1, 3, 5, 25, 'Unit 4'),
+    (2, 1, 1, 3, 5, 25, 'Unit 5');
+
+-- Insert subjects for Semester 6
+INSERT INTO subjects (stream_id, departments_id, degree_id, class_id, semester_id, subject_name) VALUES
+    (2, 1, 1, 3, 6, 'Business Intelligence'),
+    (2, 1, 1, 3, 6, 'IT Service Management'),
+    (2, 1, 1, 3, 6, 'Security in Computing'),
+    (2, 1, 1, 3, 6, 'Software Quality Assurance'),
+    (2, 1, 1, 3, 6, 'Final Year Project');
+
+-- Insert units for Semester 6 subjects
+INSERT INTO units (stream_id, departments_id, degree_id, class_id, semester_id, subject_id, unit_name) VALUES
+    (2, 1, 1, 3, 6, 26, 'Unit 1'),
+    (2, 1, 1, 3, 6, 26, 'Unit 2'),
+    (2, 1, 1, 3, 6, 26, 'Unit 3'),
+    (2, 1, 1, 3, 6, 26, 'Unit 4'),
+    (2, 1, 1, 3, 6, 26, 'Unit 5'),
+    (2, 1, 1, 3, 6, 27, 'Unit 1'),
+    (2, 1, 1, 3, 6, 27, 'Unit 2'),
+    (2, 1, 1, 3, 6, 27, 'Unit 3'),
+    (2, 1, 1, 3, 6, 27, 'Unit 4'),
+    (2, 1, 1, 3, 6, 27, 'Unit 5'),
+    (2, 1, 1, 3, 6, 28, 'Unit 1'),
+    (2, 1, 1, 3, 6, 28, 'Unit 2'),
+    (2, 1, 1, 3, 6, 28, 'Unit 3'),
+    (2, 1, 1, 3, 6, 28, 'Unit 4'),
+    (2, 1, 1, 3, 6, 28, 'Unit 5'),
+    (2, 1, 1, 3, 6, 29, 'Unit 1'),
+    (2, 1, 1, 3, 6, 29, 'Unit 2'),
+    (2, 1, 1, 3, 6, 29, 'Unit 3'),
+    (2, 1, 1, 3, 6, 29, 'Unit 4'),
+    (2, 1, 1, 3, 6, 29, 'Unit 5'),
+    (2, 1, 1, 3, 6, 30, 'Unit 1'),
+    (2, 1, 1, 3, 6, 30, 'Unit 2'),
+    (2, 1, 1, 3, 6, 30, 'Unit 3'),
+    (2, 1, 1, 3, 6, 30, 'Unit 4'),
+    (2, 1, 1, 3, 6, 30, 'Unit 5');
+
+-- Insert course codes for Semester 1 subjects
+INSERT INTO question_paper_formate (stream_id, departments_id, degree_id, class_id, semester_id, subject_id, institute_name, course_code, paper_name, time, maximum_marks) VALUES
+    (2, 1, 1, 1, 1, 1, 'SIES CE', 'BSCIT-01', 'Communication Skills', '2 Hours', '60'),
+    (2, 1, 1, 1, 1, 2, 'SIES CE', 'BSCIT-02', 'Digital Electronics', '2 Hours', '60'),
+    (2, 1, 1, 1, 1, 3, 'SIES CE', 'BSCIT-03', 'Discrete Mathematics', '2 Hours', '60'),
+    (2, 1, 1, 1, 1, 4, 'SIES CE', 'BSCIT-04', 'Imperative Programming', '2 Hours', '60'),
+    (2, 1, 1, 1, 1, 5, 'SIES CE', 'BSCIT-05', 'Operating System', '2 Hours', '60');
+
+-- Insert course codes for Semester 2 subjects
+INSERT INTO question_paper_formate (stream_id, departments_id, degree_id, class_id, semester_id, subject_id, institute_name, course_code, paper_name, time, maximum_marks) VALUES
+    (2, 1, 1, 1, 2, 6, 'SIES CE', 'BSCIT-06', 'Green Computing', '2 Hours', '60'),
+    (2, 1, 1, 1, 2, 7, 'SIES CE', 'BSCIT-07', 'Microprocessor Architecture', '2 Hours', '60'),
+    (2, 1, 1, 1, 2, 8, 'SIES CE', 'BSCIT-08', 'Numerical and Statistical Methods', '2 Hours', '60'),
+    (2, 1, 1, 1, 2, 9, 'SIES CE', 'BSCIT-09', 'Object Oriented Programming', '2 Hours', '60'),
+    (2, 1, 1, 1, 2, 10, 'SIES CE', 'BSCIT-10', 'Web Programming', '2 Hours', '60');
+
+-- Insert course codes for Semester 3 subjects
+INSERT INTO question_paper_formate (stream_id, departments_id, degree_id, class_id, semester_id, subject_id, institute_name, course_code, paper_name, time, maximum_marks) VALUES
+    (2, 1, 1, 2, 3, 11, 'SIES CE', 'BSCIT-11', 'Computer Networks', '2 Hours', '60'),
+    (2, 1, 1, 2, 3, 12, 'SIES CE', 'BSCIT-12', 'Computer Oriented Statistical Techniques', '2 Hours', '60'),
+    (2, 1, 1, 2, 3, 13, 'SIES CE', 'BSCIT-13', 'Data Structures', '2 Hours', '60'),
+    (2, 1, 1, 2, 3, 14, 'SIES CE', 'BSCIT-14', 'Database Management Systems', '2 Hours', '60'),
+    (2, 1, 1, 2, 3, 15, 'SIES CE', 'BSCIT-15', 'Python Programming', '2 Hours', '60');
+
+-- Insert course codes for Semester 4 subjects
+INSERT INTO question_paper_formate (stream_id, departments_id, degree_id, class_id, semester_id, subject_id, institute_name, course_code, paper_name, time, maximum_marks) VALUES
+    (2, 1, 1, 2, 4, 16, 'SIES CE', 'BSCIT-16', 'Applied Mathematics', '2 Hours', '60'),
+    (2, 1, 1, 2, 4, 17, 'SIES CE', 'BSCIT-17', 'Computer Graphics and Animation', '2 Hours', '60'),
+    (2, 1, 1, 2, 4, 18, 'SIES CE', 'BSCIT-18', 'Core Java', '2 Hours', '60'),
+    (2, 1, 1, 2, 4, 19, 'SIES CE', 'BSCIT-19', 'Embedded System', '2 Hours', '60'),
+    (2, 1, 1, 2, 4, 20, 'SIES CE', 'BSCIT-20', 'Software Engineering', '2 Hours', '60');
+
+-- Insert course codes for Semester 5 subjects
+INSERT INTO question_paper_formate (stream_id, departments_id, degree_id, class_id, semester_id, subject_id, institute_name, course_code, paper_name, time, maximum_marks) VALUES
+    (2, 1, 1, 3, 5, 21, 'SIES CE', 'BSCIT-21', 'Advance Web Programming', '2 Hours', '60'),
+    (2, 1, 1, 3, 5, 22, 'SIES CE', 'BSCIT-22', 'Internet of Things', '2 Hours', '60'),
+    (2, 1, 1, 3, 5, 23, 'SIES CE', 'BSCIT-23', 'Linux System Administration', '2 Hours', '60'),
+    (2, 1, 1, 3, 5, 24, 'SIES CE', 'BSCIT-24', 'Next Generation Technologies', '2 Hours', '60'),
+    (2, 1, 1, 3, 5, 25, 'SIES CE', 'BSCIT-25', 'Software Project Management', '2 Hours', '60');
+
+-- Insert course codes for Semester 6 subjects
+INSERT INTO question_paper_formate (stream_id, departments_id, degree_id, class_id, semester_id, subject_id, institute_name, course_code, paper_name, time, maximum_marks) VALUES
+    (2, 1, 1, 3, 6, 26, 'SIES CE', 'BSCIT-26', 'Business Intelligence', '2 Hours', '60'),
+    (2, 1, 1, 3, 6, 27, 'SIES CE', 'BSCIT-27', 'IT Service Management', '2 Hours', '60'),
+    (2, 1, 1, 3, 6, 28, 'SIES CE', 'BSCIT-28', 'Security in Computing', '2 Hours', '60'),
+    (2, 1, 1, 3, 6, 29, 'SIES CE', 'BSCIT-29', 'Software Quality Assurance', '2 Hours', '60'),
+    (2, 1, 1, 3, 6, 30, 'SIES CE', 'BSCIT-30', 'Final Year Project', '2 Hours', '60');

@@ -1,0 +1,50 @@
+3 streams Arts Science & Commerce and we are creating data for the Science Stream and that too for the  IT Department that has Degrees Bachelor of Science in Information and Technology(BScIT) and Master of Science in Information & Technology (MScIT).
+BScIT is a 3 year programme that is divided into 3 classes that is First Year(FY) Second Year(SY) Third Year(TY) and all together each Class has 2 Semester which make overall Semesters being 6 and each Semester has 5 subjects and Each Subject has 5 Units so in together there are 30 Subjects and in the BScIT programme.
+
+Breakdown of Data (BScIT)
+3 Years ---> 6 Semesters ---> 30 Subjects/Course ---> 150 Units(5 each subject)
+
+
+Semester 1 has:         			Course Code  
+Communication Skills    			(BSCIT-01)
+Digital Electronics     			(BSCIT-02)
+Discrete Mathematics				(BSCIT-03)
+Imperative Programming				(BSCIT-04)
+Operating System				(BSCIT-05)
+
+Semester 2 has:
+Green Computing					(BSCIT-06)
+Microprocessor Architecture			(BSCIT-07)
+Numerical and Statistical Methods		(BSCIT-08)
+Object Oriented Programming			(BSCIT-09)
+Web Programming					(BSCIT-10)
+
+Semester 3 has:
+Computer Networks				(BSCIT-11)
+Computer Oriented Statistical Techniques	(BSCIT-12)
+Data Structures					(BSCIT-13)
+Database Management Systems			(BSCIT-14)
+Python Programming				(BSCIT-15)
+
+Semester 4 has:
+Applied Mathematics				(BSCIT-16)
+Computer Graphics and Animation			(BSCIT-17)
+Core Java					(BSCIT-18)
+Embedded System					(BSCIT-19)
+Software Engineering				(BSCIT-20)
+
+Semester 5 has:
+Advance Web Programming				(BSCIT-21)
+Internet of Things				(BSCIT-22)
+Linux System Administration			(BSCIT-23)
+Next Generation Technologies			(BSCIT-24)
+Software Project Management			(BSCIT-25)
+
+Semester 6 has:
+Buisness Intelligence 				(BSCIT-26)
+IT Service Management				(BSCIT-27)
+Security in Computing				(BSCIT-28)
+Software Quality Assurance			(BSCIT-29)
+Software Project(Final Year)			(BSCIT-30)
+
+taking software project as a subject to keep the consistency of 30 subjects

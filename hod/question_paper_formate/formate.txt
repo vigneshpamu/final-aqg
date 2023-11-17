@@ -1,0 +1,99 @@
+		college name
+		exam
+date		paper name	- no paper 		time
+___________________________________________________________
+main q: 5
+
+			main q		total sub q		sub q
+sub-main	1			3				5		
+sub-main	2			1
+sub-main	3			1
+sub-main	4			1
+sub-main	5			1
+
+Add to question.:
+image are add to the question optional. ====  table form data are add into question. (both are same as consider a image.)
+design input sysmbol.
+
+
+generate the pdf of question paper.-> prev. edit thier font size ,question, top header details,marks
+
+
+generate automated question paper.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
+/* include autoloader */
+require_once 'dompdf/autoload.inc.php';
+
+
+/* reference the Dompdf namespace */
+use Dompdf\Dompdf;
+
+
+/* instantiate and use the dompdf class */
+$dompdf = new Dompdf();
+
+
+$html = '
+		<span align="center"><img src="/assets/images/new_logo.jpg" width="80px" height="40px"></span><br>
+		<h3 align="center">SIES COLLEGE OF ARTS SCIENCE AND COMMERCE SION(W).</h3><br>
+		<h4 align="center"> FIRST YEAR IN BACHELOR OF COMPUTER SCIENCE EXAMINATION - 2019</h4>
+		<h4 align="center">ALGORITHAM IN DATA STRUCTURE IN PYTHON (PAPER I)</h4>
+		<p><span style="text-align:left">Time : 2 Hours </span><span style="text-align:right"> Maximum Marks : 75</span></p>
+		<table class="table table-bordered">
+			<tr>
+				<th colspan="2">Question Paper I</th>
+			</tr>
+			<tr>
+				<th>Stream</th>
+				<td>'.$_POST['stream_id'].'</td>
+			</tr>
+			<tr>
+				<th>Departments</th>
+				<td>'.$_POST['departments_id'].'</td>
+			</tr>
+			<tr>
+				<th>Degree</th>
+				<td>'.$_POST['degree_id'].'</td>
+			</tr>
+			<tr>
+				<th>Class</th>
+				<td>'.($_POST['class_id']).'</td>
+			</tr>
+			<tr>
+				<th>Subject</th>
+				<td>'.($_POST['subject_id']).'</td>
+			</tr>
+			
+			<!--tr>
+				<th>description</th>
+				<td>'.nl2br($_POST['description']).'</td>
+			</tr--->
+		</table>';
+
+
+$dompdf->loadHtml($html);
+
+
+/* Render the HTML as PDF */
+$dompdf->render();
+
+
+/* Output the generated PDF to Browser */
+$dompdf->stream();
+?>

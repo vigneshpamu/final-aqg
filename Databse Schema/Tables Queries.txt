@@ -1,0 +1,222 @@
+-- Drop the database if it exists
+DROP DATABASE IF EXISTS automatic_test_paper_generator;
+
+-- Create Database "automatic_test_paper_generator"
+CREATE DATABASE automatic_test_paper_generator;
+
+-- Using the just created database
+USE automatic_test_paper_generator;
+
+-- Create the "users" table
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+
+-- Create the "stream" table
+CREATE TABLE stream (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    stream_name VARCHAR(255) NOT NULL
+);
+
+-- Create the "departments" table
+CREATE TABLE departments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    stream_id INT NOT NULL,
+    dept_name VARCHAR(255) NOT NULL,
+    FOREIGN KEY (stream_id) REFERENCES stream(id)
+);
+
+-- Create the "degree" table
+CREATE TABLE degree (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    stream_id INT NOT NULL,
+    departments_id INT NOT NULL,
+    degree_name VARCHAR(255) NOT NULL,
+    FOREIGN KEY (stream_id) REFERENCES stream(id),
+    FOREIGN KEY (departments_id) REFERENCES departments(id)
+);
+
+-- Create the "class" table
+CREATE TABLE class (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    stream_id INT NOT NULL,
+    departments_id INT NOT NULL,
+    degree_id INT NOT NULL,
+    class_name VARCHAR(255) NOT NULL,
+    FOREIGN KEY (stream_id) REFERENCES stream(id),
+    FOREIGN KEY (departments_id) REFERENCES departments(id),
+    FOREIGN KEY (degree_id) REFERENCES degree(id)
+);
+
+-- Create the "semester" table
+CREATE TABLE semester (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    stream_id INT NOT NULL,
+    departments_id INT NOT NULL,
+    degree_id INT NOT NULL,
+    class_id INT NOT NULL,
+    semester_name VARCHAR(255) NOT NULL,
+    FOREIGN KEY (stream_id) REFERENCES stream(id),
+    FOREIGN KEY (departments_id) REFERENCES departments(id),
+    FOREIGN KEY (degree_id) REFERENCES degree(id),
+    FOREIGN KEY (class_id) REFERENCES class(id)
+);
+
+-- Create the "subjects" table
+CREATE TABLE subjects (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    stream_id INT NOT NULL,
+    departments_id INT NOT NULL,
+    degree_id INT NOT NULL,
+    class_id INT NOT NULL,
+    semester_id INT NOT NULL,
+    subject_name VARCHAR(255) NOT NULL,
+    FOREIGN KEY (stream_id) REFERENCES stream(id),
+    FOREIGN KEY (departments_id) REFERENCES departments(id),
+    FOREIGN KEY (degree_id) REFERENCES degree(id),
+    FOREIGN KEY (class_id) REFERENCES class(id),
+    FOREIGN KEY (semester_id) REFERENCES semester(id)
+);
+
+-- Create the "units" table
+CREATE TABLE units (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    stream_id INT NOT NULL,
+    departments_id INT NOT NULL,
+    degree_id INT NOT NULL,
+    class_id INT NOT NULL,
+    semester_id INT NOT NULL,
+    subject_id INT NOT NULL,
+    unit_name VARCHAR(255) NOT NULL,
+    FOREIGN KEY (stream_id) REFERENCES stream(id),
+    FOREIGN KEY (departments_id) REFERENCES departments(id),
+    FOREIGN KEY (degree_id) REFERENCES degree(id),
+    FOREIGN KEY (class_id) REFERENCES class(id),
+    FOREIGN KEY (semester_id) REFERENCES semester(id),
+    FOREIGN KEY (subject_id) REFERENCES subjects(id)
+);
+
+-- Create the "fill_in_the_blank_based_question" table
+CREATE TABLE fill_in_the_blank_based_question (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    stream_id INT NOT NULL,
+    department_id INT NOT NULL,
+    degree_id INT NOT NULL,
+    class_id INT NOT NULL,
+    semester_id INT NOT NULL,
+    subject_id INT NOT NULL,
+    unit_id INT NOT NULL,
+    question TEXT NOT NULL,
+    answer VARCHAR(255) NOT NULL,
+    FOREIGN KEY (stream_id) REFERENCES stream(id),
+    FOREIGN KEY (department_id) REFERENCES departments(id),
+    FOREIGN KEY (degree_id) REFERENCES degree(id),
+    FOREIGN KEY (class_id) REFERENCES class(id),
+    FOREIGN KEY (semester_id) REFERENCES semester(id),
+    FOREIGN KEY (subject_id) REFERENCES subjects(id),
+    FOREIGN KEY (unit_id) REFERENCES units(id)
+);
+
+-- Create the "one_marks_question" table
+CREATE TABLE one_marks_question (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    stream_id INT NOT NULL,
+    department_id INT NOT NULL,
+    degree_id INT NOT NULL,
+    class_id INT NOT NULL,
+    subject_id INT NOT NULL,
+    unit_id INT NOT NULL,
+    question TEXT NOT NULL,
+    answer VARCHAR(255) NOT NULL,
+    FOREIGN KEY (stream_id) REFERENCES stream(id),
+    FOREIGN KEY (department_id) REFERENCES departments(id),
+    FOREIGN KEY (degree_id) REFERENCES degree(id),
+    FOREIGN KEY (class_id) REFERENCES class(id),
+    FOREIGN KEY (subject_id) REFERENCES subjects(id),
+    FOREIGN KEY (unit_id) REFERENCES units(id)
+);
+
+-- Create the "five_marks_question" table
+CREATE TABLE five_marks_question (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    stream_id INT NOT NULL,
+    department_id INT NOT NULL,
+    degree_id INT NOT NULL,
+    class_id INT NOT NULL,
+    subject_id INT NOT NULL,
+    unit_id INT NOT NULL,
+    question TEXT NOT NULL,
+    answer TEXT NOT NULL,
+    FOREIGN KEY (stream_id) REFERENCES stream(id),
+    FOREIGN KEY (department_id) REFERENCES departments(id),
+    FOREIGN KEY (degree_id) REFERENCES degree(id),
+    FOREIGN KEY (class_id) REFERENCES class(id),
+    FOREIGN KEY (subject_id) REFERENCES subjects(id),
+    FOREIGN KEY (unit_id) REFERENCES units(id)
+);
+
+-- Create the "four_marks_question" table
+CREATE TABLE four_marks_question (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    stream_id INT NOT NULL,
+    department_id INT NOT NULL,
+    degree_id INT NOT NULL,
+    class_id INT NOT NULL,
+    subject_id INT NOT NULL,
+    unit_id INT NOT NULL,
+    question TEXT NOT NULL,
+    answer TEXT NOT NULL,
+    FOREIGN KEY (stream_id) REFERENCES stream(id),
+    FOREIGN KEY (department_id) REFERENCES departments(id),
+    FOREIGN KEY (degree_id) REFERENCES degree(id),
+    FOREIGN KEY (class_id) REFERENCES class(id),
+    FOREIGN KEY (subject_id) REFERENCES subjects(id),
+    FOREIGN KEY (unit_id) REFERENCES units(id)
+);
+
+-- Create the "mcq_based_question" table
+CREATE TABLE mcq_based_question (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    stream_id INT NOT NULL,
+    department_id INT NOT NULL,
+    degree_id INT NOT NULL,
+    class_id INT NOT NULL,
+    subject_id INT NOT NULL,
+    unit_id INT NOT NULL,
+    mcq_question TEXT NOT NULL,
+    answer_A VARCHAR(255) NOT NULL,
+    answer_B VARCHAR(255) NOT NULL,
+    answer_C VARCHAR(255) NOT NULL,
+    answer_D VARCHAR(255) NOT NULL,
+    correct_answer VARCHAR(10) NOT NULL,
+    FOREIGN KEY (stream_id) REFERENCES stream(id),
+    FOREIGN KEY (department_id) REFERENCES departments(id),
+    FOREIGN KEY (degree_id) REFERENCES degree(id),
+    FOREIGN KEY (class_id) REFERENCES class(id),
+    FOREIGN KEY (subject_id) REFERENCES subjects(id),
+    FOREIGN KEY (unit_id) REFERENCES units(id)
+);
+
+-- Create the "question_paper_formate" table
+CREATE TABLE question_paper_formate (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    stream_id INT NOT NULL,
+    departments_id INT NOT NULL,
+    degree_id INT NOT NULL,
+    class_id INT NOT NULL,
+    semester_id INT NOT NULL,
+    subject_id INT NOT NULL,
+    institute_name VARCHAR(255) NOT NULL,
+    course_code VARCHAR(50) NOT NULL,
+    paper_name VARCHAR(100),
+    time VARCHAR(50) NOT NULL,
+    maximum_marks INT NOT NULL,
+    FOREIGN KEY (stream_id) REFERENCES stream(id),
+    FOREIGN KEY (departments_id) REFERENCES departments(id),
+    FOREIGN KEY (degree_id) REFERENCES degree(id),
+    FOREIGN KEY (class_id) REFERENCES class(id),
+    FOREIGN KEY (semester_id) REFERENCES semester(id),
+    FOREIGN KEY (subject_id) REFERENCES subjects(id)
+);
