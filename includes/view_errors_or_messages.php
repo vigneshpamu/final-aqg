@@ -9,7 +9,7 @@
 	<div class="alert alert-success">
 		<h3>Message(s)</h3><hr>
 		<?php foreach($messages as $message): ?>
-			<p><?php echo $message; ?></p>
+            <p><?php echo $message; ?></p>
 		<?php endforeach; ?>
 	</div>
 <?php endif; ?>

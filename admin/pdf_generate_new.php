@@ -1,28 +1,29 @@
 <?php
 /* include autoloader */
-require_once 'dompdf/autoload.inc.php';
-
+require_once "dompdf/autoload.inc.php";
 
 /* reference the Dompdf namespace */
 
 use Dompdf\Dompdf;
 
-
 /* instantiate and use the dompdf class */
-$dompdf = new Dompdf(array('enable_remote' => true));
-
+$dompdf = new Dompdf(["enable_remote" => true]);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if the form is submitted
 
     // Retrieve selected values from the form
-    $stream_id = isset($_POST['stream_id']) ? $_POST['stream_id'] : null;
-    $departments_id = isset($_POST['departments_id']) ? $_POST['departments_id'] : null;
-    $degree_id = isset($_POST['degree_id']) ? $_POST['degree_id'] : null;
-    $class_id = isset($_POST['class_id']) ? $_POST['class_id'] : null;
-    $semester_name = isset($_POST['semester_id']) ? $_POST['semester_id'] : null;
-    $subject_id = isset($_POST['subject_id']) ? $_POST['subject_id'] : null;
-    $course_code = isset($_POST['course_code']) ? $_POST['course_code'] : null;
+    $stream_id = isset($_POST["stream_id"]) ? $_POST["stream_id"] : null;
+    $departments_id = isset($_POST["departments_id"])
+        ? $_POST["departments_id"]
+        : null;
+    $degree_id = isset($_POST["degree_id"]) ? $_POST["degree_id"] : null;
+    $class_id = isset($_POST["class_id"]) ? $_POST["class_id"] : null;
+    $semester_name = isset($_POST["semester_id"])
+        ? $_POST["semester_id"]
+        : null;
+    $subject_id = isset($_POST["subject_id"]) ? $_POST["subject_id"] : null;
+    $course_code = isset($_POST["course_code"]) ? $_POST["course_code"] : null;
 
     // Concatenate the values into a string
     $outputString = "Stream Name: $stream_id<br>";
@@ -34,10 +35,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $outputString .= "Course Code: $course_code<br>";
 
     // Print the string in HTML format
-//	echo $class_id;
-
+    //	echo $class_id;
 }
-
 
 /* Connect to your database */
 $servername = "localhost";
@@ -68,51 +67,70 @@ if ($conn->connect_error) {
 //Subject Name: 4
 //Course Code: 1
 
-
 /* Your SQL query */
 $sql = "SELECT * FROM four_marks_question WHERE stream_id = $stream_id AND department_id = $departments_id AND degree_id = $degree_id AND class_id = $class_id AND subject_id = $subject_id";
 $result = $conn->query($sql);
 
 /* Fetch data from the result */
 
-$allDiv = '';
+$allDiv = "";
 $num = 1;
 
 if ($result->num_rows > 0) {
     for ($bigIndex = 0; $bigIndex < 25; $bigIndex += 5) {
-
         $start = $bigIndex * 5;
         $end = $start + 5;
 
         $ind = $start * 0;
 
-        $data = '<div style="width:100%; margin-bottom: 14px; ">
-                    <b>' . ($num) . '. Attempt Any Three Questions</b>
-                    <div style="margin:0;">
+        $data =
+            '
+                <style>
+                .all-items-in-div p {
+                margin: 0px;
+//                margin-left: 5px;
+                }
+                
+                .new-title-style {
+                margin-bottom: 50px;
+                }
+                
+                
+                </style>
+                
+                <div  style="margin-bottom: 15px;">
+                
+                    <b>' .
+            $num .
+            '. &nbsp;&nbsp;&nbsp;Attempt Any Three Questions</b>
+                    <div>
                     ';
 
         for ($index = $start; $index < $end; $index++) {
             $row = $result->fetch_assoc();
-
+            //            <p style='margin: 0px;display: inline-block;'>" . $alphabet . ")</p>
             // Check if $row is an array before accessing its elements
             if (is_array($row)) {
-                $alphabet = chr(ord('a') + $ind);
-                $para = "<p style='margin: 0px;display: inline-block;'>" . $alphabet . ")</p>";
+                $alphabet = chr(ord("a") + $ind);
+                $para =
+                    "<p style='margin: 0px;display: inline-block;'>" .
+                    $alphabet .
+                    ")</p>";
                 $data .= "
-                <style>
-                .all-items-in-div p {
-                margin: 0px;
-                }
-                </style>
-                <div style='display: flex;flex-direction: row; '>
-                <p style='margin: 0px;display: inline-block;'>" . $alphabet . ")</p>
-                {$row['question']}
+               
+                <div class='all-items-in-div' style='display: flex;flex-direction: row;padding: 2px 0px 0px 0px;'>
+       
+                {$row["question"]}
                 </div>
                 ";
             } else {
                 // Break the inner loop if $row is not an array (no more rows)
                 break;
             }
+
+            //            <div>
+            //<p>What do you understand from precedence/hierarchy of operators in C? Write down the precedence of operators in C.</p>
+            //</div>
 
             $ind++;
         }
@@ -132,8 +150,8 @@ if ($result->num_rows > 0) {
 // Output or use $allDiv as needed
 //echo $allDiv;
 
-
-$img = '<img src="https://i.ibb.co/pXhGsP7/Untitled-design-1.jpg" style="width: 100%; height: 100px;" />';
+$img =
+    '<img src="https://i.ibb.co/pXhGsP7/Untitled-design-1.jpg" style="width: 100%; height: 100px;" />';
 
 $classNameQ = "SELECT * FROM class WHERE id = $class_id";
 $classNameR = $conn->query($classNameQ);
@@ -148,11 +166,14 @@ $subjectName = $subjectNameR->fetch_assoc();
 
 //echo $semester_id;
 
-$html1 = '
+$html1 =
+    '
 <div>
 <div style="width: 100%; height:100px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center;gap: 15px;">
     <div style="width: 13%; float: left;">
-        ' . $img . '
+        ' .
+    $img .
+    '
     </div>
     <div style="width: 85%; float: left; font-size: 16px;margin-left: 0px;" >
         <h4 style="margin: 0;">SIES COLLEGE OF ARTS SCIENCE AND COMMERCE</h4>
@@ -160,9 +181,17 @@ $html1 = '
     </div>
 </div>
 <div style="width: 100%; text-align: center; text-transform: uppercase;">
-    <p style="margin: 0;">' . $className['class_name'] . ' ' . $degreeName['degree_name'] . ', 2023</p>
-    <p style="margin: 0;">' . $subjectName['subject_name'] . '</p>
-    <p style="margin: 0;">' . $semester_name . '</p>
+    <p style="margin: 0;">' .
+    $className["class_name"] .
+    " " .
+    $degreeName["degree_name"] .
+    ', 2023</p>
+    <p style="margin: 0;">' .
+    $subjectName["subject_name"] .
+    '</p>
+    <p style="margin: 0;">' .
+    $semester_name .
+    '</p>
 </div>
 <div style="width: 100%;margin: 15px 0px 10px 0px;">
     <div style="width: 30%; float: left;" align="left">
@@ -185,7 +214,9 @@ $html1 = '
     </ul>
     </div>
 </div>
-' . $allDiv . '
+' .
+    $allDiv .
+    '
 
 
 

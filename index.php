@@ -6,6 +6,9 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/init.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--    <script src="https://cdn.ckeditor.com/4.19.0/full/ckeditor.js"></script>-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <title>Home</title>
     <style>
         body {

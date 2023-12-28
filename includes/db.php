@@ -1,9 +1,9 @@
 <?php 
 	
 	error_reporting(E_ALL);
-	if (session_status() == PHP_SESSION_NONE) {
+if (session_status() == PHP_SESSION_NONE) {
     session_start();
-	}
+}
 	
 	$dbhost = "localhost";
 	$dbname = "automatic_test_paper_generator";

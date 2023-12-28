@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/init.php');
+if (!isset($_SESSION['user_id'])) {
+    session_start();
+    header("Location: /login/login.php");
+    exit();
+}
 ?>
 <html lang="en">
 <head><title>Automated Test Paper Generator | Home</title>
@@ -22,7 +27,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/init.php');
     />
     <!--Jquery
 	<script src="../../assets/libs/jquery/jquery-2.1.4.min.js"></script>   -->
-    <script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script>
+    <!--    <script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script>-->
 
 </head>
 <body>
@@ -40,7 +45,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/init.php');
             <a href="/admin/units/units.php" class="navbar-item navbar-button navbar-padding-large">Units</a>
             <a href="/admin/questions/questions.php"
                class="navbar-item navbar-button navbar-padding-large">Questions</a>
-            <a href="/index.php" class="navbar-item-right navbar-button-right navbar-padding-large navbar-right">Log
+            <a href="/admin/logout.php" class="navbar-item-right navbar-button-right navbar-padding-large navbar-right">Log
                 Out</a>
         </div>
     </div>

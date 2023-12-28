@@ -62,23 +62,53 @@
     </style>
 </head>
 <body>
+
 <div class="container">
     <div class="div-form">
-        <div class="form-title">LOGIN
-            <div id="lottie-container"></div>
-        </div>
+        <?php
 
-        <form action="/login/process_login_2.php" method="POST" onsubmit="return checkPassword()">
-            Username: <br>
-            <input type="text" class="input-text" id="username" name="username" required>
-            <br>
-            Password: <br>
-            <input type="password" class="input-text" id="password" name="password" required>
-            <br>
-            <div class="error-message" id="error-message"></div>
-            <br>
-            <input type="submit" name="submit" class="input-submit" id="submit" value="Log In">
-        </form>
+        if (isset($_POST['submit'])) {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+
+            //verifying the unique email
+            $con = mysqli_connect("localhost", "root", "", "automatic_test_paper_generator") or die("Couldn't connect");
+            $verify_query = mysqli_query($con, "SELECT username FROM users WHERE username='username'");
+
+            if (mysqli_num_rows($verify_query) != 0) {
+                echo "<div class='message'>
+                      <p>This email is used, Try another One Please!</p>
+                  </div> <br>";
+                echo "<a href='javascript:self.history.back()'><button class='btn'>Go Back</button>";
+            } else {
+
+                mysqli_query($con, "INSERT INTO users(username,password,role) VALUES('$username','$password','admin')") or die("Erroe Occured");
+
+                echo "<div class='message'>
+                      <p>Registration successfully!</p>
+                  </div> <br>";
+                echo "<a href='/login/login.php'><button class='btn-login' style='padding: 10px;'>Login Now</button>";
+            }
+
+        } else {
+
+            ?>
+            <div class="form-title">REGISTER
+                <div id="lottie-container"></div>
+            </div>
+
+            <form action="" method="POST" onsubmit="return checkPassword()">
+                Username: <br>
+                <input type="text" class="input-text" id="username" name="username" required>
+                <br>
+                Password: <br>
+                <input type="password" class="input-text" id="password" name="password" required>
+                <br>
+                <div class="error-message" id="error-message"></div>
+                <br>
+                <input type="submit" name="submit" class="input-submit" id="submit" value="Log In">
+            </form>
+        <?php } ?>
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.8/lottie.min.js"></script>

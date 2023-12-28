@@ -9,6 +9,7 @@
     <!-- STYLE CSS -->
     <link type="text/css" rel="stylesheet" href="/assets/css/custom.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.19.0/full/ckeditor.js"></script>
 
 
     <style>
@@ -57,6 +58,7 @@
         <nav class="nav-bar nav-center navbar-black">
             <a href="/index.php" class="navbar-item navbar-button navbar-padding-large">HOME</a>
             <a href="/login/login.php" class="navbar-item navbar-button navbar-padding-large navbar-right">LOGIN</a>
+            <a href="/register/register.php" class="navbar-item navbar-button navbar-padding-large navbar-right">REGISTER</a>
         </nav>
     </div>
 </header>
